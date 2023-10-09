@@ -6,19 +6,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/reviews")
-@CrossOrigin(origins = "*")
 public class ReviewController {
-
     @Autowired
     private ReviewService service;
 
-    @PostMapping() // Xử lý yêu cầu POST
+    @PostMapping()
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload) {
-        // Xử lý logic để tạo đánh giá và lưu vào cơ sở dữ liệu
-        Review newReview = service.createReview(payload.get("reviewBody"), payload.get("imdbId"));
-        return new ResponseEntity<>(newReview, HttpStatus.OK);
+
+        return new ResponseEntity<Review>(service.createReview(payload.get("reviewBody"), payload.get("imdbId")), HttpStatus.OK);
     }
 }
