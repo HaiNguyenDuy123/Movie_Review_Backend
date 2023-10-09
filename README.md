@@ -1,6 +1,0 @@
-﻿# Movie_Review
- .env
-MONGO_DATABASE=""
-MONGO_USER=""
-MONGO_PASSWORD=""
-MONGO_CLUSTER=""
